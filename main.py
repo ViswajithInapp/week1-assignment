@@ -17,9 +17,6 @@ for i in range (10):
   user_choice = int(input("Enter your choice for round {}: ".format(i+1)))
   comp_outcome = [1, 2, 3]
   comp_choice = random.choice(comp_outcome)
-  pw = "Player won"
-  cw = "Computer won"
-  tie = "Tie"
   c=test(user_choice,comp_choice)  
   present[:3]=[user_choice,comp_choice,c]
   moves[i+1] = present
