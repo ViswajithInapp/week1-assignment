@@ -28,8 +28,8 @@ round_val = int(input("Enter the round for which you need the instruction : "))
 if round_val>10:
     print("Invalid input")
 else:
-    print(f" \n Player's move:{moves[round_val][0]} \nComputer's move:{moves[round_val][1]} \n")
+    print(f" \n Player's move:{moves[round_val][0]} \nComputer's move:{moves[round_val][1]}")
     if(moves[round_val][2]=="Tie"):
       print("Its a Tie \n")
     else:
-      print(f" {moves[round_val][2]} Round {round_val} \n")
+      print(f"{moves[round_val][2]} Round {round_val} \n")
