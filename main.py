@@ -1,84 +1,35 @@
 import random
-c1=""
-c2=""
-c3=""
-list1 = [1, 2, 3]
-playerr = {}     #for storing round:user choice
-computerr = {}   #for storing round:computer choice
-roundd = {}      #for storing round:win/lost
-print("ENTER THE CHOICE OF USER (ROCK :1,PAPER :2,SCISSORS :3")
-for i in range(10):#gets values on all 3 dictionaries
-    s = input("ENTER THE CHOICE IN ROUND {} :".format(i+1))
-    playerr[i]=s
-    computerr[i]=random.choice(list1)
-    if playerr[i]==computerr[i]:
-        roundd[i]="DRAW"
-#    else :
-#        if (playerr[i]==1 and computerr[i]==3):
-#            roundd[i] = "WON"
-#        elif (playerr[i]==2 and computer[i]==1):
-#            roundd[i] = "WON"
-#        elif (playerr[i]==3 and computerr[i]==2):
-#            roundd[i] = "WON"
-#        else:
-#            roundd[i] = "LOST"
-    else :
-        if (playerr[i]==1):#when player chooses rock
-            if (computerr[i]==3):
-                roundd[i] = "WON"
-            elif(computerr[i]==2):
-                roundd[i]="LOST"
-        elif (playerr[i]==2):#when player chooses paper
-            if(computerr[i]==1):
-                roundd[i] = "WON"
-            elif (computerr[i]==3):
-                roundd[i]="LOST"
-        elif (playerr[i]==3):#when player chooses scissors
-            if(computer[i]==1):
-                roundd[i] = "LOST"
-            elif (computerr[i]==2):
-                roundd[i]="WON"
-m=input("ENTER THE ROUND YOU NEED INFORMATION :")
-m=int(m)
-m=m-1
-print (m)
-#print(playerr[m])
-#print(computerr[m])
-#print(roundd[m])
-
-if playerr[m]==1:
-    c1="ROCK"
-    if roundd[m]=="LOST":
-        c2="PAPER"
-        c3="LOST"
-    elif roundd[m]=="WON":
-        c2="SCISSORS"
-        c3="WON"
+def test(a,b):
+    r=""
+    if(a==b):
+       r="Tie" 
+       return r
+    elif(a==1 and b==2) or (a==2 and b==3) or (a==3 and b==1):
+        r="LOST"
+        return r
+    elif(a==1 and b==3) or (a==2 and b==1) or (a==3 and b==2):
+        r="WON"
+        return r
+moves = {}
+print("ENTER YOUR CHOICE\n1) ROCK\n2) PAPER\n3) SCISSOR")
+for i in range (10):
+  present = []
+  user_choice = int(input("Enter your choice for round {}: ".format(i+1)))
+  comp_outcome = [1, 2, 3]
+  comp_choice = random.choice(comp_outcome)
+  pw = "Player won"
+  cw = "Computer won"
+  tie = "Tie"
+  c=test(user_choice,comp_choice)  
+  present[:3]=[user_choice,comp_choice,c]
+  moves[i+1] = present
+  
+round_val = int(input("Enter the round for which you need the instruction : "))
+if round_val>10:
+    print("Invalid input")
+else:
+    print(f" \n Player's move:{moves[round_val][0]} \nComputer's move:{moves[round_val][1]} \n")
+    if(moves[round_val][2]=="Tie"):
+      print("Its a Tie \n")
     else:
-        c2=c1
-        c3="WON"
-elif playerr[m]==2:
-    c1="PAPER"
-    if roundd[m]=="LOST":
-        c2="SCISSORS"
-        c3="LOST"
-    elif roundd[m]=="WON":
-        c2="ROCK"
-        c3="WON"
-    else:
-        c2=c1
-        c3="WON"
-elif playerr[m]==3:
-    c1="SCISSORS"
-    if roundd[m]=="LOST":
-        c2="ROCK"
-        c3="LOST"
-    elif roundd[m]=="WON":
-        c2="PAPER"
-        c3="WON"
-    else:
-        c2=c1
-        c3="WON"
-print("PLAYER CHOICE ="+ c1)   #c1 has value of player choice in mth round
-print("COMPUTER CHOICE ="+ c2) #c2 has value of computer choice in mth round
-print("ROUND "+ c3)            #c3 has value of player choice in mth round
+      print(f" {moves[round_val][2]} Round {round_val} \n")
