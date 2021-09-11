@@ -19,8 +19,7 @@ for i in range (10):
   comp_choice = random.choice(comp_outcome)
   c=test(user_choice,comp_choice)  
   present[:3]=[user_choice,comp_choice,c]
-  moves[i+1] = present
-  
+  moves[i+1] = present  
 round_val = int(input("Enter the round for which you need the instruction : "))
 if round_val>10:
     print("Invalid input")
